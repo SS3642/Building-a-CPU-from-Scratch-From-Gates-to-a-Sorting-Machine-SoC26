@@ -10,7 +10,12 @@ module regfile(
     output [7:0] rdata0, rdata1
 );
     reg [7:0] regs [3:0]; //4 registers, each 8 bits wide
-
+    integer i;
+    initial begin
+        for (i=0;i<4;i=i+1) begin
+            regs[i]=8'b0;
+        end
+    end
     always @(posedge clk) begin
         if (we) begin
             regs[waddr] <= wdata;
