@@ -12,13 +12,11 @@ module regfile(
     reg [7:0] regs [3:0]; //4 registers, each 8 bits wide
 
     always @(posedge clk) begin
-        if (we)
-            // YOUR CODE HERE — write wdata to regs[waddr]
-            ;
+        if (we) begin
+            regs[waddr] <= wdata;
+        end
     end
-
-    // YOUR CODE HERE — assign rdata0 and rdata1 from regs\
-    // assign rdata0 = ...
-    // assign rdata1 = ...
+    assign rdata0 = regs[raddr0];
+    assign rdata1 = regs[raddr1];
 
 endmodule
