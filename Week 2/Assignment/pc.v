@@ -8,9 +8,14 @@ module pc(
     output reg [5:0] pc_out
 );
     always @(posedge clk) begin
-        // YOUR CODE HERE
-        // if rst:  pc_out = 0
-        // if load: pc_out = load_val
-        // if inc:  pc_out = pc_out + 1
+        if(rst) begin
+            pc_out=6'b0
+        end
+        else if(load) begin
+            pc_out=load_val;      
+        end 
+        else if(inc) begin
+            pc_out=pc_out+1'b1; 
+        end
     end
 endmodule
