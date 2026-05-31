@@ -9,7 +9,7 @@ module pc(
 );
     always @(posedge clk) begin
         if(rst) begin
-            pc_out=6'b0
+            pc_out=6'b0;
         end
         else if(load) begin
             pc_out=load_val;      
